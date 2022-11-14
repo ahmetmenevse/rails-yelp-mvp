@@ -17,5 +17,12 @@ Restaurant.destroy_all
     category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
   puts "Restaurant with id: #{restaurant.id} and #{restaurant.name} has been created."
+
+  5.times do
+    review = Review.create(
+      content: Faker::Lorem.paragraph,
+      rating: (1..5).to_a.sample
+    )
+    puts "#{review.content} and #{review.rating}"
+  end
 end
-puts "finished"
